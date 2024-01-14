@@ -1,0 +1,77 @@
+// Heading1.module.css
+p {
+  color: #fff;
+  font-family: 'Avenir Next', 'Helvetica Neue', Helvetica, Tahoma, sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+}
+
+span {
+  display: inline-block;
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 500;
+  -webkit-font-smoothing: antialiased;
+}
+
+span::before,
+span::after {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: -1px;
+  transform-origin: left top;
+  transition: all ease-out 0.3s;
+  content: attr(data-text);
+}
+
+span::before {
+  z-index: 1;
+  color: rgba(0, 0, 0, 0.2);
+  transform: scale(var(--shadow-scale, 1), 1) skew(0deg, var(--shadow-initial-skew, -20deg));
+}
+
+span::after {
+  z-index: 2;
+  color: var(--background-color, hsla(259, 36%, 47%, 1));
+  text-shadow: -1px 0 1px var(--background-color, hsla(259, 36%, 47%, 1)),
+    1px 0 1px rgba(0, 0, 0, 0.8);
+  transform: rotateY(var(--initial-skew, -40deg));
+}
+
+span:hover::before {
+  transform: scale(var(--shadow-scale, 1), 1) skew(0deg, var(--shadow-hover-skew, -5deg));
+}
+
+span:hover::after {
+  transform: rotateY(var(--hover-skew, -10deg));
+}
+
+span + span {
+  margin-left: var(--letter-spacing, 0.3em);
+}
+
+p {
+  @media (min-width: 20em) {
+    font-size: 2em;
+    span::before,
+    span::after {
+      display: block;
+    }
+  }
+
+  @media (min-width: 30em) {
+    font-size: 3em;
+  }
+
+  @media (min-width: 40em) {
+    font-size: 5em;
+  }
+
+  @media (min-width: 60em) {
+    font-size: 8em;
+  }
+}
+span {
+  font-size: 66px;
+}

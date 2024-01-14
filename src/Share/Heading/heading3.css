@@ -1,0 +1,90 @@
+/* Heading3.module.css */
+
+/* Import the font here */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+/* @import "compass/css3"; */
+
+body {
+  background: black;
+  font-family: "Share Tech Mono", sans-serif;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* height: 100vh; */
+  /* overflow: hidden; */
+}
+
+.glitch {
+  color: white;
+  font-size: 100px;
+  text-transform: uppercase;
+  position: relative;
+  width: 600px;
+  margin: 0 auto;
+}
+
+@keyframes noise-anim {
+  0%, 20%, 50%, 80%, 100% {
+    clip: rect(61px, 9999px, 2px, 0);
+  }
+  10% {
+    clip: rect(34px, 9999px, 20px, 0);
+  }
+  30% {
+    clip: rect(11px, 9999px, 35px, 0);
+  }
+  40% {
+    clip: rect(50px, 9999px, 5px, 0);
+  }
+  60% {
+    clip: rect(30px, 9999px, 15px, 0);
+  }
+}
+
+.glitch:after {
+  content: attr(data-text);
+  position: absolute;
+  left: 2px;
+  text-shadow: -1px 0 red;
+  top: 0;
+  color: white;
+  background: black;
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+  animation: noise-anim 2s infinite linear alternate-reverse;
+}
+
+@keyframes noise-anim-2 {
+  0%, 20%, 50%, 80%, 100% {
+    clip: rect(21px, 9999px, 83px, 0);
+  }
+  10% {
+    clip: rect(75px, 9999px, 10px, 0);
+  }
+  30% {
+    clip: rect(33px, 9999px, 53px, 0);
+  }
+  40% {
+    clip: rect(62px, 9999px, 23px, 0);
+  }
+  60% {
+    clip: rect(42px, 9999px, 15px, 0);
+  }
+  70% {
+    clip: rect(20px, 9999px, 10px, 0);
+  }
+}
+
+.glitch:before {
+  content: attr(data-text);
+  position: absolute;
+  left: -2px;
+  text-shadow: 1px 0 blue;
+  top: 0;
+  color: white;
+  background: black;
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+  animation: noise-anim-2 3s infinite linear alternate-reverse;
+}
